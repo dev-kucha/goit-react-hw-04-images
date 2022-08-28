@@ -1,9 +1,9 @@
 import styles from './ImageGalleryItem.module.css';
-const ImageGalleryItem = function () {
+const ImageGalleryItem = function ({ url }) {
   return (
-    <li className={styles.ImageGalleryItem}>
-      <img className={styles.ImageGalleryItemImage} src="" alt="" />
-    </li>
+    <div className={styles.ImageGalleryItem}>
+      <img className={styles.ImageGalleryItemImage} src={url} alt="" />
+    </div>
   );
 };
 

@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import styles from './SearchForm.module.css';
 import { ReactComponent as SeachIcon } from '../../icons/search-svgrepo-com.svg';
+import { toast } from 'react-toastify';
+
+// const notify = () => toast('Wow so easy!');
 
 export default class SearchForm extends Component {
   state = {
@@ -18,6 +21,13 @@ export default class SearchForm extends Component {
         className={styles.SearchForm}
         onSubmit={e => {
           e.preventDefault();
+
+          if (this.state.searchQuery.trim() === '') {
+            // alert('Enter search');
+            toast.error('Enter search!');
+            return;
+          }
+
           this.props.handleSubmit(this.state.searchQuery);
           this.handleChange('');
         }}
