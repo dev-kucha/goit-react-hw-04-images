@@ -17,9 +17,9 @@
   height: 48px;
   border: 0;
   /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg'); */
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-size: 40%; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   opacity: 0.6;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -31,14 +31,14 @@
 }
 
 .SearchFormButtonLabel {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  /* position: absolute; */
+  width: 38px;
+  height: 38px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  clip-path: inset(50%);
+  /* clip: rect(0, 0, 0, 0); */
+  /* white-space: nowrap; */
+  /* clip-path: inset(50%); */
   border: 0;
 }
 

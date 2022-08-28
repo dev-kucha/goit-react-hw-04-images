@@ -8,12 +8,18 @@ import styles from './App.module.css';
 
 export class App extends Component {
   state = {
-    showModal: true,
+    searchQuery: '',
+    showModal: false,
   };
 
   // componentDidMount() {}
 
   // componentDidUpdate() {}
+
+  handleSubmit = searchQuery => {
+    console.log(searchQuery);
+    this.setState({ searchQuery: searchQuery });
+  };
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({
@@ -26,7 +32,7 @@ export class App extends Component {
 
     return (
       <main className={styles.App}>
-        <Searchbar>Searchbar</Searchbar>
+        <Searchbar handleSubmit={this.handleSubmit}>Searchbar</Searchbar>
         <ImageGallery />
         <Loader />
         {showModal && (
