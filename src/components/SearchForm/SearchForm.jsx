@@ -12,13 +12,14 @@ export default class SearchForm extends Component {
     this.setState({ searchQuery: query });
   }
 
-  render(props) {
+  render() {
     return (
       <form
         className={styles.SearchForm}
         onSubmit={e => {
           e.preventDefault();
           this.props.handleSubmit(this.state.searchQuery);
+          this.handleChange('');
         }}
       >
         <button
