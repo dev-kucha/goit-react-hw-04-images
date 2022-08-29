@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
@@ -67,9 +68,13 @@ export class App extends Component {
     return (
       <main className={styles.App}>
         <Searchbar handleSubmit={this.handleSubmit}>Searchbar</Searchbar>
+
         {status === 'resolved' && <ImageGallery images={images} />}
+
         {status === 'pending' && <Loader />}
+
         {status === 'rejected' && <p>{error.message}</p>}
+
         {showModal && (
           <Modal onClose={this.toggleModal}>
             Modal Content
@@ -78,6 +83,7 @@ export class App extends Component {
             </button>
           </Modal>
         )}
+
         <ToastContainer />
       </main>
     );
