@@ -8,6 +8,7 @@ import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import Modal from './Modal/Modal';
+import Button from './Button/Button';
 
 import styles from './App.module.css';
 
@@ -15,7 +16,8 @@ export class App extends Component {
   state = {
     searchQuery: '',
     images: null,
-    showModal: false,
+    selectImageUrl: '',
+    // showModal: false,
     // loading: false,
     error: null,
     status: 'idle',
@@ -53,28 +55,35 @@ export class App extends Component {
     }));
   };
 
+  handleSelectImg = (url = '') => {
+    this.setState(({ selectImageUrl }) => ({
+      selectImageUrl: url,
+    }));
+  };
+
   render() {
-    const { showModal, images, error, status } = this.state;
+    const { images, error, status, selectImageUrl, searchQuery } = this.state;
 
     return (
       <main className={styles.App}>
         <Searchbar handleSubmit={this.handleSubmit}>Searchbar</Searchbar>
 
-        {status === 'resolved' && <ImageGallery images={images} />}
+        {status === 'resolved' && (
+          <ImageGallery images={images} onSelectImg={this.handleSelectImg} />
+        )}
 
         {status === 'pending' && <Loader />}
 
         {status === 'rejected' && <p>{error.message}</p>}
 
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            Modal Content
-            <button type="button" onClick={this.toggleModal}>
-              Close
-            </button>
-          </Modal>
+        {selectImageUrl.length > 0 && (
+          <Modal
+            onClose={this.handleSelectImg}
+            imgUrl={selectImageUrl}
+            imgAlt={searchQuery}
+          />
         )}
-
+        <Button />
         <ToastContainer />
       </main>
     );

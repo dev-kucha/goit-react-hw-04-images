@@ -1,10 +1,6 @@
 import styles from './ImageGalleryItem.module.css';
-const ImageGalleryItem = function ({ url }) {
-  return (
-    <div className={styles.ImageGalleryItem}>
-      <img className={styles.ImageGalleryItemImage} src={url} alt="" />
-    </div>
-  );
+const ImageGalleryItem = function ({ url, alt }) {
+  return <img className={styles.ImageGalleryItemImage} src={url} alt={alt} />;
 };
 
 export default ImageGalleryItem;
