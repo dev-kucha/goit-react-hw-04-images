@@ -1,8 +1,8 @@
 import styles from './Button.module.css';
 
-const Button = function () {
+const Button = function ({ onNextPage }) {
   return (
-    <button className={styles.LoadMore} type="button">
+    <button className={styles.LoadMore} type="button" onClick={onNextPage}>
       Load more
     </button>
   );

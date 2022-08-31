@@ -11,7 +11,7 @@ export default class SearchForm extends Component {
   };
 
   handleChange(query) {
-    console.log(query);
+    // console.log(query);
     this.setState({ searchQuery: query });
   }
 
