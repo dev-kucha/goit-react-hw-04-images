@@ -1,6 +1,8 @@
 import { Component } from 'react';
-import styles from './SearchForm.module.css';
 import { ReactComponent as SeachIcon } from '../../icons/search-svgrepo-com.svg';
+import PropTypes from 'prop-types';
+import styles from './SearchForm.module.css';
+
 import { toast } from 'react-toastify';
 
 // const notify = () => toast('Wow so easy!');
@@ -56,28 +58,6 @@ export default class SearchForm extends Component {
   }
 }
 
-// const SearchForm = function () {
-//   return (
-//     <form className={styles.SearchForm}>
-//       <button
-//         type="button"
-//         className={styles.SearchFormButton}
-//         aria-label="Search"
-//       >
-//         <span className={styles.SearchFormButtonLabel}>
-//           <SeachIcon />
-//         </span>
-//       </button>
-
-//       <input
-//         className={styles.SearchFormInput}
-//         type="text"
-//         // autocomplete="off"
-//         // autofocus
-//         placeholder="Search images and photos"
-//       />
-//     </form>
-//   );
-// };
-
-// export default SearchForm;
+SearchForm.SearchForm = {
+  handleSubmit: PropTypes.func.isRequired,
+};

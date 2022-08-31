@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 
 const Button = function ({ onNextPage }) {
@@ -6,6 +7,10 @@ const Button = function ({ onNextPage }) {
       Load more
     </button>
   );
+};
+
+Button.Button = {
+  onNextPage: PropTypes.func.isRequired,
 };
 
 export default Button;
